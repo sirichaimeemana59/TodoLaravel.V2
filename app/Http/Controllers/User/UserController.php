@@ -56,11 +56,11 @@ class UserController extends Controller
     }
 
 
-    public function edit($id = null)
+    public function edit(Request $request)
     {
-        $profile = User_Profile::find($id);
-        $profile = $profile->first();
-
+        $profile = User_Profile::find($request->input('id'));
+        //$profile = $profile->first();
+        //return response()->json($profile);
         //dd($profile);
         return view('User.update_profile_form')->with(compact('profile'));
     }

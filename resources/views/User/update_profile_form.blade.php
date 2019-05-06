@@ -1,5 +1,3 @@
-@extends('Layout.Index')
-@section('content')
     <div class="row from-control col-sm-9">
 {!! Form::model($profile,array('url' => array('update/profile'),'class'=>'form-horizontal','id'=>'form_add','method'=>'post','enctype'=>'multipart/form-data')) !!}
 
@@ -43,4 +41,3 @@
 </div>
 {!! Form::close() !!}
     </div>
-@endsection
