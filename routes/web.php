@@ -14,3 +14,6 @@ Route::post('/update/profile','User\UserController@update');
 Route::post('/delete/profile','User\UserController@destroy');
 
 Route::get('/firebase','Firebase\FirebaseController@index');
+
+//product
+Route::get('product/list_product','Product\ProductController@index');

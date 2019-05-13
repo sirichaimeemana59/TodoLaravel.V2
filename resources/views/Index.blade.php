@@ -43,7 +43,7 @@
                             <li class="active"  data-toggle="modal" data-target="#register"><a href="#"><span><small>01</small>Register</span></a></li>
                             <li data-toggle="modal" data-target="#profile"><a href="#"><span><small>02</small>Profile</span></a></li>
                             <li><a href="{!! url('/list_user') !!}"><span><small>03</small>List User</span></a></li>
-                            <li><a href="blog.html"><span><small>04</small>Blog</span></a></li>
+                            <li><a href="{!! url('/product/list_product') !!}"><span><small>04</small>Product</span></a></li>
                             <li><a href="contact.html"><span><small>05</small>Contact</span></a></li>
                         </ul>
                     </div>
