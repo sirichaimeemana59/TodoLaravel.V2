@@ -17,3 +17,4 @@ Route::get('/firebase','Firebase\FirebaseController@index');
 
 //product
 Route::get('product/list_product','Product\ProductController@index');
+Route::get('product/add_product','Product\ProductController@index');

@@ -12,10 +12,10 @@ class ProductController extends Controller
 
     public function index()
     {
-        $product = new Book;
+        $product = new Product;
         $product = $product->get();
 
-        return view('orderproduct.list_product')->with(compact('product'));
+        return view('product.list_product')->with(compact('product'));
     }
 
 
