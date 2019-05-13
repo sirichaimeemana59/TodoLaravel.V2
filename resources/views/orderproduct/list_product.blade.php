@@ -43,6 +43,22 @@
                     <th>ราคาสุทธิ</th>
                     <th>Action</th>
                 </tr>
+
+
+            </table>
+            <table class="table table-responsive">
+                <tr>
+                    <th width="15%"></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr class="total">
+                    <td colspan="3">รวม</td>
+                    <td style="text-align: right;"><input type="text" class="total" readonly> <input type="hidden" class="_total"></td>
+                </tr>
             </table>
         </div>
     </div>
@@ -71,33 +87,58 @@
                var photo = $(this).data('photo');
                var price = $(this).data('price');
 
+
+
                var data = ['<tr class="itemRow">',
                    '<td><img src="../'+photo+'" alt="" width="25%"></td>',
                    '<td><span>'+name+'</span><input type="hidden" name="name_product[]" value="'+name+'"></td>',
                    '<td><input type="number" class="price_total" name="amount[]" min="1" max="10"></td>',
                    '<td><span>'+price+'</span><input type="hidden" class="price_product" value="'+price+'"></td>',
-                   '<td><input type="text" class="result"></td>',
+                   '<td><input type="text" class="result" readonly></td>',
                    '<td><a class="btn btn-danger delete-order"><i class="fa fa-trash"></i></a></td>',
-                   ,'</tr>'].join('');
+                   ];
+
+                data.push(
+                    '<td><div class="text-right">' +
+                    '<span class="colTotal"></span> </div><input class="tLineTotal" name="" type="hidden"></td>','</tr>');
+                data = data.join('');
 
                 $('.itemTables').append(data);
 
             });
 
-            $('body').on("click", '.delete-order', function() {
+            $('.itemTables').on("click", '.delete-order', function() {
                 //alert('aaa');
                 $(this).closest('tr.itemRow').remove();
-                return false;
+                //return false;
+                calTotal();
+
             });
 
-            $('body').on("change", '.price_total', function() {
+            $('.itemTables').on("change", '.price_total', function() {
                 var price = $(this).val();
                 var price_product = $('.price_product').val();
                 //console.log(price*price_product);
                 var total = price*price_product;
                 //$('body').parents('tr').find('.result').val(total);
-                $(this).parents('tr').find('.result').val(total);
+                $(this).parents('tr').find('.result').val(total.toFixed(2));
+                $('.total').val('0.00');
+                $(this).parents('tr').find('.tLineTotal').val(total);
+                calTotal();
             });
+
+            function calTotal(){
+               var Total = 0;
+                $('.tLineTotal').each(function () {
+                    if ( $(this).val() !== "" ) {
+                        t = Number($(this).val());
+                        Total += t;
+
+                        //var _Total = $.number(Total,2);
+                        $('.total').val(Total.toFixed(2));
+                    }
+                });
+            }
 
         });
     </script>

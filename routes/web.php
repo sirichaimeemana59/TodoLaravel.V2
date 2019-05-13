@@ -16,5 +16,10 @@ Route::post('/delete/profile','User\UserController@destroy');
 Route::get('/firebase','Firebase\FirebaseController@index');
 
 //product
-Route::get('product/list_product','Product\ProductController@index');
+Route::get('product/list_product','Order\OrderproductController@index');
 Route::get('product/add_product','Product\ProductController@index');
+Route::post('product/insert_product','Product\ProductController@create');
+Route::any('/product/edit_product','Product\ProductController@edit');
+Route::any('/product/update_product','Product\ProductController@update');
+Route::post('product/view_product','Product\ProductController@show');
+Route::post('product/delete_product','Product\ProductController@destroy');
