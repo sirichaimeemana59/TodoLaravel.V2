@@ -33,7 +33,7 @@
                     </div>
                 </div>
             @endif
-
+                {!! Form::model(null,array('url' => array('product/order_product/insert'),'class'=>'form-horizontal','id'=>'form_add','method'=>'post','enctype'=>'multipart/form-data')) !!}
             <table class="table table-responsive itemTables">
                 <tr>
                     <th width="15%">รูป</th>
@@ -46,7 +46,7 @@
 
 
             </table>
-            <table class="table table-responsive">
+                <table class="table table-responsive">
                 <tr>
                     <th width="15%"></th>
                     <th></th>
@@ -59,7 +59,12 @@
                     <td colspan="3">รวม</td>
                     <td style="text-align: right;"><input type="text" class="total" readonly> <input type="hidden" class="_total"></td>
                 </tr>
+                <tr>
+                    <td colspan="3"></td>
+                    <td style="text-align: right;"><button class="btn-info btn-primary btn-lg" type="submit"><li class="fa fa-shopping-cart"></li> Add To Cart</button></td>
+                </tr>
             </table>
+            {!! Form::close() !!}
         </div>
     </div>
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -91,10 +96,10 @@
 
                var data = ['<tr class="itemRow">',
                    '<td><img src="../'+photo+'" alt="" width="25%"></td>',
-                   '<td><span>'+name+'</span><input type="hidden" name="name_product[]" value="'+name+'"></td>',
+                   '<td><span>'+name+'</span><input type="hidden" name="id_product[]" value="'+id+'"><input type="hidden" name="name_product[]" value="'+name+'"></td>',
                    '<td><input type="number" class="price_total" name="amount[]" min="1" max="10"></td>',
-                   '<td><span>'+price+'</span><input type="hidden" class="price_product" value="'+price+'"></td>',
-                   '<td><input type="text" class="result" readonly></td>',
+                   '<td><span>'+price+'</span><input type="hidden" name="price[]" class="price_product" value="'+price+'"></td>',
+                   '<td><input type="text" name="result[]" class="result" readonly></td>',
                    '<td><a class="btn btn-danger delete-order"><i class="fa fa-trash"></i></a></td>',
                    ];
 

@@ -43,7 +43,7 @@
             <ul class="nav nav-pills nav-stacked">
                 <li class="active"><a href="{!! url('/product/add_product') !!}">Product</a></li>
                 <li><a href="{!! url('/product/list_product') !!}">Order Product</a></li>
-                <li><a href="#section3">Family</a></li>
+                <li><a href="{!! url('/product/list_order_product') !!}">List Order</a></li>
                 <li><a href="#section3">Photos</a></li>
             </ul><br>
             <div class="input-group">
