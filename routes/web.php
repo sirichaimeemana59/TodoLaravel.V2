@@ -28,3 +28,4 @@ Route::get('product/list_product','Order\OrderproductController@index');
 Route::post('product/order_product/insert','Order\OrderproductController@create');
 Route::get('product/list_order_product','Order\OrderproductController@store');
 Route::any('product/view_order_product','Order\OrderproductController@show');
+Route::get('product/edit_order_product/{tax?}','Order\OrderproductController@edit');

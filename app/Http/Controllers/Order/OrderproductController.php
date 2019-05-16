@@ -74,9 +74,15 @@ class OrderproductController extends Controller
 
     }
 
-    public function edit($id)
+    public function edit($tax = null)
     {
-        //
+        $order = new Order;
+        $order = $order->where('order_tax',$tax)->get();
+
+        $product = new Product;
+        $product = $product->get();
+
+        return view ('orderproduct.edit_order_product')->with(compact('order','product'));
     }
 
     public function update(Request $request, $id)
